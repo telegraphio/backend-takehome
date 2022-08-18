@@ -4,8 +4,8 @@ This repo has all the information you need to complete the take-home assignment.
 
 ## Requirements
 
-- Complete user stories 1 & 2 (see below) using the language and database of your choice
-  - Postgres running as a docker container is preferred. You can use the provided [docker-compose.yml](./docker-compose.yml) file as a starting point. To use it, simply 
+- Complete user stories [1](#1-ingestion-pipeline) & [2](#2-rest-api) using the language and database of your choice
+  - **NOTE**: For the database, Postgres running as a docker container is *preferred*. You can use the provided [docker-compose.yml](./docker-compose.yml) file as a starting point. To use it, simply 
     1. Copy [`.env.sample`](./.env.sample) to `.env` and set the values appropriately
     2. Run the database with the command `docker-compose up -d`
 - Provide clear documentation
