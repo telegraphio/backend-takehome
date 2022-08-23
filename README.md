@@ -35,7 +35,7 @@ Create an API server that features the following enpoints
 
 All the routes should return JSON.
 
-Any event route should allow for filtering by the `sighting_data` field
+Any event route should allow for filtering by the `posting_date` field
 
 ### 3. **BONUS**: Route endpoint
 
