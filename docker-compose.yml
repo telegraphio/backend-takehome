@@ -20,6 +20,13 @@ services:
       retries: 5
     networks:
       - telegraph_network
+  api:
+    build: webapp
+    container_name: api
+    environment:
+      SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://${PGUSER}:${PGPASSWORD}@localhost:5432/{PGDATABASE}"
+    networks:
+      - telegraph_network
 
 volumes:
   pgdata:
