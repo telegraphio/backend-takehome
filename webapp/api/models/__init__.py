@@ -3,3 +3,4 @@ from .base import Base  # NOQA
 from .equipment import Equipment
 from .event import Event
 from .location import Location
+from .waybill import Waybill
