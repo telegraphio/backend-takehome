@@ -5,7 +5,7 @@ from .base import Base
 class Event(Base):
     """Model for provided data/events.csv"""
     
-    __table__name = "event"
+    __tablename__ = "event"
 
     id = Column(Integer, primary_key=True)
     equipment_id = Column(String)

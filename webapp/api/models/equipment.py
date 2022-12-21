@@ -5,7 +5,7 @@ from .base import Base
 class Equipment(Base):
     """Model for provided data/equipment.csv"""
     
-    __table__name = "equipment"
+    __tablename__ = "equipment"
 
     id = Column(Integer, primary_key=True)
     customer = Column(String)

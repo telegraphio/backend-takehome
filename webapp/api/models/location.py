@@ -5,7 +5,7 @@ from .base import Base
 class Location(Base):
     """Model for provided data/locations.csv"""
     
-    __table__name = "location"
+    __tablename__ = "location"
 
     id = Column(Integer, primary_key=True)
     city = Column(String)
