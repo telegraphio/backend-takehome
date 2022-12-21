@@ -5,7 +5,7 @@ from .base import Base
 class Waybill(Base):
     """Model for provided data/waybills.csv"""
     
-    __tablename__ = "waybill"
+    __tablename__ = "waybills"
 
     id = Column(Integer, primary_key=True)
     equipment_id = Column(String)
