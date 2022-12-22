@@ -12,5 +12,5 @@ COPY ./ .
 
 from base as webapp
 ENV PORT=8088
-CMD [ "sh", "-c", "gunicorn -b 0.0.0.0:${PORT} api:wsgi"]
+CMD [ "sh", "-c", "gunicorn -b 0.0.0.0:${PORT} api.wsgi:app"]
 
