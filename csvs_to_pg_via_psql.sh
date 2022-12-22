@@ -3,7 +3,10 @@
 help() {
     echo "Provides tool to copy csvs to DB"
     echo "      - copy          -> Truncates and Copies all tables"
-    echo "      - truncate     -> Only truncates tables"
+    echo "      - truncate      -> Only truncates tables"
+    echo "      "
+    echo "     Requires  PGUSER, PGPASSWORD and PGDATABASE in env"
+    echo "     Optionally uses PGHOST"
     
 }
 
@@ -12,7 +15,21 @@ if [[ $# -eq 0 ]] ; then
     exit 0
 fi
 
-connectionString="postgresql://$PGUSER:$PGPASSWORD@localhost/$PGDATABASE"
+if [[ ! -v PGUSER ]]; then
+    echo "PGUSER is not set"
+    exit 1
+elif [[ ! -v PGPASSWORD ]]; then
+    echo "PGPASSWORD is not set"
+    exit 1
+elif [[ ! -v PGDATABASE ]]; then
+    echo "PGDATABASE is not set"
+    exit 1
+elif [[ ! -v PGHOST ]]; then
+    PGHOST='localhost'
+fi
+
+
+connectionString="postgresql://$PGUSER:$PGPASSWORD@$PGHOST/$PGDATABASE"
 
 truncate() {
     echo "Truncating current data in PG tables"
