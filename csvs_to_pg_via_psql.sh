@@ -26,8 +26,8 @@ copydata(){
     echo "Uploading data from client to PG"
     psql "${connectionString}" -c "\copy equipment FROM 'data/equipment.csv' delimiter ',' csv header"
     psql "${connectionString}" -c "\copy locations FROM 'data/locations.csv' delimiter ',' csv header"
-    psql "${connectionString}" -c "\copy events FROM 'data/events.csv' delimiter ',' csv header"
     psql "${connectionString}" -c "\copy waybills FROM 'data/waybills.csv' delimiter ',' csv header"
+    psql "${connectionString}" -c "\copy events FROM 'data/events.csv' delimiter ',' csv header"
 }
 
 for arg in "$@"; do
