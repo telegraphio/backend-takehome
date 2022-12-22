@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DateTime, Integer, JSON, String
+from sqlalchemy import Column, DateTime, Integer, ForeignKey, JSON, String
 
 from .base import Base, BaseMixin
 
@@ -27,7 +27,7 @@ class Waybill(BaseMixin, Base):
     equipment_weight_code = Column(String)
     commodity_code = Column(Integer)
     commodity_description = Column(String)
-    origin_id = Column(Integer)
-    destination_id = Column(Integer)
+    origin_id = Column(Integer, ForeignKey("locations.id"))
+    destination_id = Column(Integer, ForeignKey("locations.id"))
     routes = Column(JSON)
     parties = Column(JSON)

@@ -16,10 +16,10 @@ connectionString="postgresql://$PGUSER:$PGPASSWORD@localhost/$PGDATABASE"
 
 truncate() {
     echo "Truncating current data in PG tables"
-    psql "${connectionString}" -c "TRUNCATE equipment"
-    psql "${connectionString}" -c "TRUNCATE locations"
-    psql "${connectionString}" -c "TRUNCATE events"
-    psql "${connectionString}" -c "TRUNCATE waybills"
+    psql "${connectionString}" -c "TRUNCATE equipment CASCADE"
+    psql "${connectionString}" -c "TRUNCATE locations CASCADE"
+    psql "${connectionString}" -c "TRUNCATE events CASCADE"
+    psql "${connectionString}" -c "TRUNCATE waybills CASCADE"
 }
 
 copydata(){

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
 
 from .base import Base, BaseMixin
 
@@ -19,5 +19,5 @@ class Event(BaseMixin, Base):
     sighting_event_code_text  = Column(String)
     train_id  = Column(String)
     train_alpha_code  = Column(String)
-    location_id = Column(Integer)
-    waybill_id = Column(Integer)
+    location_id = Column(Integer, ForeignKey("locations.id"))
+    waybill_id = Column(Integer, ForeignKey("waybills.id"))
