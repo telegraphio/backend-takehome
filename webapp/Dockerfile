@@ -10,7 +10,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY ./ .
 
-from base as webapp
+FROM base as webapp
 ENV PORT=8088
 CMD [ "sh", "-c", "gunicorn -b 0.0.0.0:${PORT} api.wsgi:app"]
 
