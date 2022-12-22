@@ -4,9 +4,10 @@ from .base import Base, BaseMixin
 
 from datetime import date, datetime
 
+
 class Equipment(BaseMixin, Base):
     """Model for provided data/equipment.csv"""
-    
+
     __tablename__ = "equipment"
 
     id = Column(Integer, primary_key=True)
@@ -17,4 +18,3 @@ class Equipment(BaseMixin, Base):
     # Time in UTC or local time w/ no timezone?
     date_added = Column(DateTime)
     date_removed = Column(DateTime)
-

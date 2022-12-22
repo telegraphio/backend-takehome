@@ -2,9 +2,10 @@ from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
 
 from .base import Base, BaseMixin
 
+
 class Event(BaseMixin, Base):
     """Model for provided data/events.csv"""
-    
+
     __tablename__ = "events"
 
     id = Column(Integer, primary_key=True)
@@ -15,9 +16,9 @@ class Event(BaseMixin, Base):
     posting_date = Column(DateTime)
     from_mark_id = Column(String)
     load_empty_status = Column(String)
-    sighting_claim_code  = Column(String)
-    sighting_event_code_text  = Column(String)
-    train_id  = Column(String)
-    train_alpha_code  = Column(String)
+    sighting_claim_code = Column(String)
+    sighting_event_code_text = Column(String)
+    train_id = Column(String)
+    train_alpha_code = Column(String)
     location_id = Column(Integer, ForeignKey("locations.id"))
     waybill_id = Column(Integer, ForeignKey("waybills.id"))

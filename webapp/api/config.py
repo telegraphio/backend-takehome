@@ -8,7 +8,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     # for example, 'postgresql://candidate:password123@localhost:5432/takehome'
-    SQLALCHEMY_DATABASE_URI = os.environ['SQLALCHEMY_DATABASE_URI']
+    SQLALCHEMY_DATABASE_URI = os.environ["SQLALCHEMY_DATABASE_URI"]
 
 
 config_dict = {"DEVELOPMENT": DevelopmentConfig, "default": DevelopmentConfig}

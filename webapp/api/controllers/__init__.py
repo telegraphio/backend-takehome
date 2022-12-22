@@ -22,7 +22,7 @@ from api.controllers.waybills import (
     GetEventsByWaybillID,
     GetLocationsByWaybillID,
     GetRouteByWaybillID,
-    GetPartiesByWaybillID
+    GetPartiesByWaybillID,
 )
 
 # add your routes

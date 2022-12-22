@@ -3,6 +3,7 @@ from falcon import Request, Response
 # from api.db import SQLAlchemy
 from api.models.equipment import Equipment
 
+
 class GetEquipment:
     """
     Simple get all equipment data endpoint

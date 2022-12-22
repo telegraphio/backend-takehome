@@ -2,14 +2,14 @@ from sqlalchemy import create_engine, orm
 
 
 class SQLAlchemy:
-
     def __init__(self, conn_str):
         self.engine = create_engine(conn_str)
         self.session = None
 
     def connect(self):
-        sm = orm.sessionmaker(bind=self.engine, autoflush=True,
-                              autocommit=True, expire_on_commit=True)
+        sm = orm.sessionmaker(
+            bind=self.engine, autoflush=True, autocommit=True, expire_on_commit=True
+        )
         self.session = orm.scoped_session(sm)
 
     @staticmethod
@@ -20,7 +20,6 @@ class SQLAlchemy:
 
 
 class SQLAlchemyMiddleware:
-
     def __init__(self, config):
         self.db = SQLAlchemy(config.SQLALCHEMY_DATABASE_URI)
 
@@ -29,5 +28,5 @@ class SQLAlchemyMiddleware:
         resource.session = self.db.session
 
     def process_response(self, req, resp, resource, req_succeeded):
-        if hasattr(resource, 'session'):
+        if hasattr(resource, "session"):
             self.db.close(resource.session)

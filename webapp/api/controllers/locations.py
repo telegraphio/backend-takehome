@@ -3,6 +3,7 @@ from falcon import Request, Response
 # from api.db import SQLAlchemy
 from api.models.location import Location
 
+
 class GetLocations:
     """
     Simple get all events data endpoint

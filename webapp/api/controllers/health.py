@@ -1,5 +1,6 @@
 from falcon import Request, Response
 
+
 class PingHandler:
     """
     Simple ping endpoint

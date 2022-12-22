@@ -2,14 +2,15 @@ from sqlalchemy import Column, DateTime, Integer, ForeignKey, JSON, String
 
 from .base import Base, BaseMixin
 
+
 class Waybill(BaseMixin, Base):
     """Model for provided data/waybills.csv"""
-    
+
     __tablename__ = "waybills"
 
     id = Column(Integer, primary_key=True)
     equipment_id = Column(String)
-    waybill_date = Column(DateTime) # Could be date field with more context
+    waybill_date = Column(DateTime)  # Could be date field with more context
     waybill_number = Column(Integer)
     created_date = Column(DateTime)
     billing_road_mark_name = Column(String)
