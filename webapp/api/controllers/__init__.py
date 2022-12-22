@@ -17,6 +17,7 @@ from api.controllers.locations import (
 )
 from api.controllers.waybills import (
     GetWaybills,
+    GetWaybillByID
 )
 
 # add your routes
@@ -26,3 +27,4 @@ def setup_routes(app: falcon.App):
     app.add_route("/events", GetEvents())
     app.add_route("/locations", GetLocations())
     app.add_route("/waybills", GetWaybills())
+    app.add_route("/waybills/{waybill_id}", GetWaybillByID())
