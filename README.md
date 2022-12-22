@@ -1,3 +1,45 @@
+# Docs to bring up Take-Home
+
+Clone project and start Postgres
+```sh
+git clone git@github.com:be-ez/backend-takehome.git 
+cd backend-takehome
+cp .env.sample .env
+echo "starting Postgres"
+docker-compose up -d postgres
+```
+
+Create Tables via Alembic
+```sh
+cd api
+virtualenv -p `which python3` env
+source env/bin/activate
+pip install -r requirements.txt
+echo "Adding DB URI to env"
+export SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://candidate:password123@localhost:5432/takehome"
+echo "Adding tables to DB via alembic"
+alembic upgrade head
+cd ..
+```
+
+Populate DB via `csvs_to_pg_via_psql.sh` see [Ingestion Pipeline](./Ingestion_Pipline.md)
+```sh
+export PGUSER=candidate
+export PGPASSWORD=password123
+export PGDATABASE=takehome
+./csvs_to_pg_via_psql.sh copy
+```
+Start API via Docker-Compose
+```
+docker-compose up -d api
+```
+
+Start API via Python
+```sh
+cd api
+gunicorn --reload api.wsgi:app
+```
+
 # Telegraph Backend Take-home
 
 This repo has all the information you need to complete the take-home assignment. Know that we are excited about you as a candidate, and can't wait to see what you build!
