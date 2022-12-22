@@ -1,8 +1,10 @@
 from sqlalchemy import Column, DateTime, Integer, String
 
-from .base import Base
+from .base import Base, BaseMixin
 
-class Equipment(Base):
+from datetime import date, datetime
+
+class Equipment(BaseMixin, Base):
     """Model for provided data/equipment.csv"""
     
     __tablename__ = "equipment"
@@ -15,3 +17,4 @@ class Equipment(Base):
     # Time in UTC or local time w/ no timezone?
     date_added = Column(DateTime)
     date_removed = Column(DateTime)
+

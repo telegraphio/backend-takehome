@@ -1,8 +1,8 @@
 from sqlalchemy import Column, DateTime, Integer, String
 
-from .base import Base
+from .base import Base, BaseMixin
 
-class Event(Base):
+class Event(BaseMixin, Base):
     """Model for provided data/events.csv"""
     
     __tablename__ = "events"

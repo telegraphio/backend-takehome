@@ -1,8 +1,8 @@
 from sqlalchemy import Column, DateTime, Integer, JSON, String
 
-from .base import Base
+from .base import Base, BaseMixin
 
-class Waybill(Base):
+class Waybill(BaseMixin, Base):
     """Model for provided data/waybills.csv"""
     
     __tablename__ = "waybills"

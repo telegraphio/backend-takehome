@@ -1,8 +1,8 @@
 from sqlalchemy import Column, DateTime, Integer, String
 
-from .base import Base
+from .base import Base, BaseMixin
 
-class Location(Base):
+class Location(BaseMixin, Base):
     """Model for provided data/locations.csv"""
     
     __tablename__ = "locations"
