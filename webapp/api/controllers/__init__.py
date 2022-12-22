@@ -20,7 +20,9 @@ from api.controllers.waybills import (
     GetWaybillByID,
     GetEquipmentByWaybillID,
     GetEventsByWaybillID,
-    GetLocationsByWaybillID
+    GetLocationsByWaybillID,
+    GetRouteByWaybillID,
+    GetPartiesByWaybillID
 )
 
 # add your routes
@@ -34,3 +36,5 @@ def setup_routes(app: falcon.App):
     app.add_route("/waybills/{waybill_id}/equipment", GetEquipmentByWaybillID())
     app.add_route("/waybills/{waybill_id}/events", GetEventsByWaybillID())
     app.add_route("/waybills/{waybill_id}/locations", GetLocationsByWaybillID())
+    app.add_route("/waybills/{waybill_id}/route", GetRouteByWaybillID())
+    app.add_route("/waybills/{waybill_id}/parties", GetPartiesByWaybillID())

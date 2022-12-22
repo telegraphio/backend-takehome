@@ -48,3 +48,17 @@ class GetLocationsByWaybillID:
             Location.id.in_([waybill.origin_id, waybill.destination_id])
             )
         resp.media = [x.toDict() for x in locations]
+
+class GetRouteByWaybillID:
+
+     def on_get(self, _: Request, resp: Response, waybill_id):
+        
+        waybill = self.session.query(Waybill).get(waybill_id)
+        resp.media = waybill.routes
+
+class GetPartiesByWaybillID:
+
+     def on_get(self, _: Request, resp: Response, waybill_id):
+        
+        waybill = self.session.query(Waybill).get(waybill_id)
+        resp.media = waybill.parties
