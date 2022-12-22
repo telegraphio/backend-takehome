@@ -18,7 +18,7 @@ from api.controllers.locations import (
 from api.controllers.waybills import (
     GetWaybills,
     GetWaybillByID,
-    GetEquiptmentByWaybillID,
+    GetEquipmentByWaybillID,
     GetEventsByWaybillID,
     GetLocationsByWaybillID
 )
@@ -31,6 +31,6 @@ def setup_routes(app: falcon.App):
     app.add_route("/locations", GetLocations())
     app.add_route("/waybills", GetWaybills())
     app.add_route("/waybills/{waybill_id}", GetWaybillByID())
-    app.add_route("/waybills/{waybill_id}/equipment", GetEquiptmentByWaybillID())
+    app.add_route("/waybills/{waybill_id}/equipment", GetEquipmentByWaybillID())
     app.add_route("/waybills/{waybill_id}/events", GetEventsByWaybillID())
     app.add_route("/waybills/{waybill_id}/locations", GetLocationsByWaybillID())

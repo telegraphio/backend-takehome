@@ -23,21 +23,21 @@ class GetWaybillByID:
         resp.media = self.session.query(Waybill).get(waybill_id).toDict()
 
 
-class GetEquiptmentByWaybillID:
+class GetEquipmentByWaybillID:
 
     def on_get(self, _: Request, resp: Response, waybill_id):
         
         equipment_id = self.session.query(Waybill).get(waybill_id).equipment_id
         equipment = self.session.query(Equipment).filter(Equipment.equipment_id==equipment_id)
-        resp.media = [x._toDict() for x in equipment]
+        resp.media = [x.toDict() for x in equipment]
 
 class GetEventsByWaybillID:
 
     def on_get(self, _: Request, resp: Response, waybill_id):
         # We should check that a waybill exists before filtering the Events table
         waybill = self.session.query(Waybill).get(waybill_id)
-        events = self.session.query(Event).filter(Event.waybill_id==waybill.id)
-        resp.media = [x._toDict() for x in events]
+        events = self.session.query(Event).filter(Event.waybill_id==waybill.id).all()
+        resp.media = [x.toDict() for x in events]
 
 class GetLocationsByWaybillID:
 
@@ -45,7 +45,6 @@ class GetLocationsByWaybillID:
         
         waybill = self.session.query(Waybill).get(waybill_id)
         locations = self.session.query(Location).filter(
-            Location.id.in_([waybill.origin_id, waybill_id.destination_id])
+            Location.id.in_([waybill.origin_id, waybill.destination_id])
             )
-        resp.media = [x._toDict() for x in equipment]
-        print()
+        resp.media = [x.toDict() for x in locations]
