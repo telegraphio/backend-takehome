@@ -32,6 +32,7 @@ def create_app(environment_name):
     setup_routes(falcon_app)
     falcon_app.req_options.media_handlers.update(extra_handlers)
     falcon_app.resp_options.media_handlers.update(extra_handlers)
+    falcon_app.req_options.strip_url_path_trailing_slash = True
     return falcon_app, configuration
 
 api, config = create_app(os.getenv('APP_ENV') or 'default')

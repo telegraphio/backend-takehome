@@ -23,8 +23,13 @@ services:
   api:
     build: webapp
     container_name: api
+    ports:
+      - "8088:8088"
     environment:
-      SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://${PGUSER}:${PGPASSWORD}@localhost:5432/{PGDATABASE}"
+      PORT: 8088
+      SQLALCHEMY_DATABASE_URI: "postgresql+psycopg2://${PGUSER}:${PGPASSWORD}@postgres:5432/${PGDATABASE}"
+    healthcheck:
+      test: [""]
     networks:
       - telegraph_network
 
